@@ -1,0 +1,6 @@
+require('nn.ComputeXGrad')
+require('nn.ComputeYGrad')
+require('nn.DomainTransform')
+require('nn.EdgeComputation')
+require('nn.IIWscale')
+require('nn.WHDRHingeLossPara')
