@@ -1,0 +1,3 @@
+FROM wujiaye1996/revisit_decomposition
+ENV CUDA_CACHE_MAXSIZE=4294967296
+RUN th -e "require 'torch'; require 'cunn'; require 'cutorch'; require 'cudnn'; print('done')"

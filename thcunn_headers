@@ -1,32 +1,16 @@
-TH_API void THNN_CudaDomainTransform_updateOutput(
-  THCState *state, 
-  THCudaTensor *edge,
-  THCudaTensor *output, 
-  THCudaTensor *weight, 
-  THCudaTensor *inter,
-  int num_iter, 
-  float sigma_range, 
-  int sigma_spatial);
+TH_API void THNN_(EdgeComputation_updateOutput)(
+                  THCState *state, THCudaTensor *input, THCudaTensor *output);
 
-TH_API void THNN_CudaDomainTransform_updateGradInput(
-THCState *state,
-THCudaTensor *edge, 
-THCudaTensor *gradData, 
-THCudaTensor *gradEdge,
-THCudaTensor *weight, 
-THCudaTensor *inter, 
-THCudaTensor *gradWeight,
-int num_iter, 
-float sigma_range, 
-int sigma_spatial);
+TH_API void THNN_(EdgeComputation_updateGradInput)(
+                  THCState *state, THCudaTensor *input, THCudaTensor *gradOutput, THCudaTensor *gradInput);
 
-TH_API void THNN_CudaEdgeComputation_updateOutput(
-THCState *state, 
-THCudaTensor *input, 
-THCudaTensor *output);
+TH_API void THNN_(DomainTransform_updateOutput)(
+                  THCState *state, THCudaTensor *edge,
+            THCudaTensor *output, THCudaTensor *weight, THCudaTensor *inter,
+            int num_iter, float sigma_range, int sigma_spatial);
 
-TH_API void THNN_CudaEdgeComputation_updateGradInput(
-THCState *state, 
-THCudaTensor *input, 
-THCudaTensor *gradOutput, 
-THCudaTensor *gradInput);
+TH_API void THNN_(DomainTransform_updateGradInput)(
+                  THCState *state,
+            THCudaTensor *edge, THCudaTensor *gradData, THCudaTensor *gradEdge,
+            THCudaTensor *weight, THCudaTensor *inter, THCudaTensor *gradWeight,
+            int num_iter, float sigma_range, int sigma_spatial);
